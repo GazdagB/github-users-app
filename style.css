@@ -1,0 +1,30 @@
+.search,
+.data {
+  transition: transform 0.3s ease-in-out;
+}
+
+.search:hover,
+.data:hover {
+  transform: scale(1.02);
+}
+
+
+.search-btn{
+    background: #0079ff;
+}
+
+.search-btn:hover{
+    background: #60ABFF;
+}
+
+.search{
+    position: relative;
+}
+
+.no-result{
+    position: absolute;
+    right: 160px; 
+    color: #F74646;
+    font-weight: bold;
+}
+

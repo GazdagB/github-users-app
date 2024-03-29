@@ -1,0 +1,37 @@
+.space-mono-regular {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .space-mono-bold {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .space-mono-regular-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .space-mono-bold-italic {
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  body{
+    font-family: Space Mono,sans-serif;
+    background-color: #F6F8FF;
+  }
+
+  .input-white::-webkit-input-placeholder{
+    color: #fff;
+  }
+
+  .off-white-text{
+    color: #697C9A;
+  }
+

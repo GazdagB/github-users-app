@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Frontend Mentor | GitHub user search app</title>
+    <script src="index.js" defer></script>
+    <script src="svg-inject.js"></script>
+  </head>
+  <body class="flex h-screen w-screen justify-center items-center ">
+
+
+    <div class="w-[730px] h-[575px]">
+
+      <!-- Devfinder header -->
+      <div class="font-bold mb-[36px] flex justify-between items-center">
+        <p class="text-[26px]">devfinder</p> 
+        <div id="btn-light-mode" class=" btn-light-mode flex items-center gap-3">
+          <p class="light-mode-text text-[13px] font-bold">DARK</p>
+
+          <svg id="light-mode-icon" width="20" height="20" viewBox="0 0 244 244" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="sun" d="M91.5 133.5C116.697 195.394 191.5 212.5 191.5 212.5C104 249 33.1972 229.894 7.99994 168C-17.1973 106.106 18 21 104 0.500002C104 0.500002 66.3027 71.606 91.5 133.5Z" fill="#FFC531"/>
+          </svg>        
+            
+            <!-- 
+              d="M91.5 133.5C116.697 195.394 191.5 212.5 191.5 212.5C104 249 33.1972 229.894 7.99994 168C-17.1973 106.106 18 21 104 0.500002C104 0.500002 66.3027 71.606 91.5 133.5Z"
+
+              <svg width="192" height="231" viewBox="0 0 192 231" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M91.5 133.5C116.697 195.394 191.5 212.5 191.5 212.5C104 249 33.1972 229.894 7.99994 168C-17.1973 106.106 18 21 104 0.500002C104 0.500002 66.3027 71.606 91.5 133.5Z" fill="#FFC531"/>
+                </svg>
+            -->
+        </div>
+      </div>
+
+      <!-- Searchbar -->
+      <div class="search h-[69px] w-full flex items-center justify-between px-5 bg-white shadow-md rounded-md mb-[24px] cursor-pointer">
+        <div class="flex gap-4 w-full items-center">
+          <img src="./assets/icon-search.svg" alt="" />
+          <input id="search" class="input cursor-pointer focus:outline-none w-full py-5 px-3" type="text" placeholder="Search Github username..." />
+        </div>
+        <p class="no-result hidden" >No results</p>
+        <button class="search-btn bg-[#0079FF] py-3 px-7 text-white rounded-md">
+          Search
+        </button>
+      </div>
+
+      
+
+      
+      
+
+      
+      <div class="data h-min w-full bg-white rounded-lg shadow-md flex p-[40px] gap-[37px]">
+
+        <div id="not-found" class="hidden gap-10 flex justiy-between w-full h-full">
+          <img class="w-[280px] " src="./assets/octocat404.png" alt="">
+          <div  class="w-[480px]" >
+            <h2 class="font-bold text-[30px] leading-10 mt-12 mb-5" ><span class="text-[60px]">404</span> <br>User Not Found</h2>
+            <p>Ooopss... sorry we couldn't find the user you are looking for.</p>
+          </div>
+        </div>
+
+           
+          <div id="profileContainer" class="w-[117px]">
+            <div id="profilePic" class="w-full h-[117px] rounded-full" ></div>
+          </div>
+
+          <div id="data-container" class="w-[480px] ">
+          <div class="flex justify-between items-center">
+            <h2 id="name" class="text-[26px] font-bold"></h2>
+            <p id="created"></p>
+          </div>
+          <p id="username" class="text-[#0079FF] mb-[20px]">@username</p>  
+          <p id="bio" class="text-[15px] mb-[32px]"></p>
+          <div class="stats grid grid-rows-2 grid-cols-3 gap-2 px-5 py-5 bg-[#F6F8FF] h-[85px] rounded-lg items-center justify-center mb-[30px]">
+
+              <p class="category text-[13px] off-white-text">Repos</p>
+              <p class="category text-[13px] off-white-text">Followers</p>
+              <p class="category text-[13px] off-white-text">Following</p>
+              <p class="text-[22px] font-bold" id="repoNumber"></p>
+              <p class="text-[22px] font-bold" id="followerNumber"></p>
+              <p class="text-[22px] font-bold" id="following"></p>
+                    
+          </div>
+
+          <div class="grid grid-rows-2 grid-cols-2 gap-[10px]">
+            <p class="flex gap-3 items-center"><img onload="SVGInject(this)" class="icon" src="./assets/icon-location.svg" alt=""><span id="city"></span></p>
+            <p class="flex gap-3 items-center"><img onload="SVGInject(this)" class="icon" src="./assets/icon-twitter.svg" alt=""> <span id="twitter"></span></p>
+            <p class="flex gap-3 items-center"><img onload="SVGInject(this)" class="icon" src="./assets/icon-website.svg" alt=""> <span id="link"></span></p>
+            <p class="flex gap-3 items-center"><img onload="SVGInject(this)" class="icon" src="./assets/icon-company.svg" alt=""> <span id="company"></span></p>
+          </div>
+          </div>
+        
+      </div>
+      
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="anime.min.js"></script>
+  </body>
+</html>
