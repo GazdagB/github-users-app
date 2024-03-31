@@ -28,3 +28,33 @@
     font-weight: bold;
 }
 
+#link{
+ cursor: pointer;
+}
+
+#link:hover{
+ text-decoration: underline;
+}
+
+.spinner{
+animation-name: spin;
+animation-duration: 1000ms;
+animation-iteration-count: infinite;
+height: 50px;
+}
+
+.spinner path{
+fill: #0079ff;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loader{
+  height: 370px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -27,8 +27,9 @@
   </head>
   <body class="flex h-screen w-screen justify-center items-center ">
 
+  
 
-    <div class="w-[730px] h-[575px]">
+    <div class="w-[327px] sm:w-[573px] md:w-[730px]  h-[575px]">
 
       <!-- Devfinder header -->
       <div class="font-bold mb-[36px] flex justify-between items-center">
@@ -83,12 +84,14 @@
             <div id="profilePic" class="w-full h-[117px] rounded-full" ></div>
           </div>
 
+          <img class="spinner hidden" src="./assets/spinner-solid.svg" alt="">
+
           <div id="data-container" class="w-[480px] ">
           <div class="flex justify-between items-center">
             <h2 id="name" class="text-[26px] font-bold"></h2>
             <p id="created"></p>
           </div>
-          <p id="username" class="text-[#0079FF] mb-[20px]">@username</p>  
+          <a href="#" target="_blank" id="username" class="text-[#0079FF] mb-[20px]">@username</a>  
           <p id="bio" class="text-[15px] mb-[32px]"></p>
           <div class="stats grid grid-rows-2 grid-cols-3 gap-2 px-5 py-5 bg-[#F6F8FF] h-[85px] rounded-lg items-center justify-center mb-[30px]">
 
@@ -104,10 +107,12 @@
           <div class="grid grid-rows-2 grid-cols-2 gap-[10px]">
             <p class="flex gap-3 items-center"><img onload="SVGInject(this)" class="icon" src="./assets/icon-location.svg" alt=""><span id="city"></span></p>
             <p class="flex gap-3 items-center"><img onload="SVGInject(this)" class="icon" src="./assets/icon-twitter.svg" alt=""> <span id="twitter"></span></p>
-            <p class="flex gap-3 items-center"><img onload="SVGInject(this)" class="icon" src="./assets/icon-website.svg" alt=""> <span id="link"></span></p>
+            <p class="flex gap-3 items-center"><img onload="SVGInject(this)" class="icon" src="./assets/icon-website.svg" alt=""> <a href="" target="_blank" id="link"></a></p>
             <p class="flex gap-3 items-center"><img onload="SVGInject(this)" class="icon" src="./assets/icon-company.svg" alt=""> <span id="company"></span></p>
           </div>
           </div>
+
+          
         
       </div>
       

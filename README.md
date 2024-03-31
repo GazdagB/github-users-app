@@ -105,6 +105,12 @@ We love receiving feedback! We're always looking to improve our challenges and o
 ## TODOS 
  
  - (DONE) Handle user not found 
- - Truncate Texts to make chars 
- - Hover effects 
- - Animation of user load 
+ - (DONE) User Not Found
+ - (DONE) Truncate Texts  
+ - (DONE) Hover effects 
+ - (Later) Animation of user load 
+ - (DONE) Style Not available elements
+ - (DONE) Username Link 
+ - (DONE) Blog Link
+ - Fake Loader Animation
+ - Responsivity 

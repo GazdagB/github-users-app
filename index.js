@@ -89,8 +89,10 @@ let user = "GazdagB"
 
 window.addEventListener("load", async ()=>{
 apiData = await fetchBase();     
-console.log(apiData);
+//console.log(apiData);
 fillInUser(); 
+styleAfterAvailability();
+loadLinks();
 })
 
 serachButton.on("click",async ()=>{
@@ -105,6 +107,8 @@ serachButton.on("click",async ()=>{
         hideNotFound();
         fillInUser();
         showElements();
+        styleAfterAvailability();
+        loadLinks();
     }
     
 })
@@ -114,9 +118,9 @@ input.on("keypress", async (e) => {
         user = input.val();
         await fetchSearch();
 
+
         if(apiData.message === "Not Found"){
             console.log("User not found");   
-            hideElements();
             showNotFound();
             resultText.removeClass("hidden")
         
@@ -125,6 +129,8 @@ input.on("keypress", async (e) => {
             hideNotFound();
             fillInUser();
             showElements();
+            styleAfterAvailability();
+            loadLinks();
         }
     }
 });
@@ -164,10 +170,10 @@ function fillInUser(){
     repoNumber.text(apiData.public_repos)
     followerNumber.text(apiData.followers)
     following.text(apiData.following)
-    city.text(truncateString(apiData.location  === "" ? "Not Available" : apiData.location, 16))
-    twitter.text(truncateString(apiData.twitter_username === null ? "Not Available" : apiData.twitter_username, 16))
-    link.text(truncateString(apiData.blog === null ? "Not Available" : apiData.blog, 30));
-    company.text(apiData.company === null ? "Not Available" : apiData.company)
+    city.text(truncateString(!apiData.location ? "Not Available" : apiData.location, 16))
+    twitter.text(truncateString(!apiData.twitter_username ? "Not Available" : apiData.twitter_username, 16))
+    link.text(truncateString(!apiData.blog ? "Not Available" : apiData.blog, 16));
+    company.text(truncateString(!apiData.company? "Not Available" : apiData.company, 19))
     profilePic.css('background-image', 'url(' + apiData.avatar_url + ')');
     profilePic.css('background-size', "contain")
 }
@@ -200,9 +206,61 @@ function hideNotFound(){
  * @returns The truncated string, potentially with the ending appended.
  */
 function truncateString(str, length, ending = '...') {
+    
     if (str.length <= length) return str;
     return str.slice(0, length) + ending;
   }
 
 
-  
+  //It has to be deterministic
+function styleAfterAvailability(){
+    //LOCATION
+    if(apiData.location === ""){
+        city.css("opacity", "0.5");
+    }else if(apiData.location){
+        city.css("opacity", "1");
+    }
+
+    //TWITTER
+    if(apiData.twitter_username === null){
+        twitter.css("opacity", "0.5");
+    }else if(apiData.twitter_username){
+        twitter.css("opacity", "1");
+    }
+
+    //LINK
+    if(apiData.blog === ""){
+        link.css("opacity", "0.5");
+    }else if(apiData.blog){
+        link.css("opacity", "1");
+    }
+
+    //COMPANY
+    if(apiData.company === null){
+        company.css("opacity", "0.5");
+    }else if(apiData.company){
+        company.css("opacity", "1");
+    }
+
+    //BIO
+    if(apiData.bio === null){
+        bio.css("opacity", "0.5");
+    }else if(apiData.bio){
+        bio.css("opacity", "1");
+    }
+}
+
+function loadLinks(){
+    if(apiData.blog !== ""){
+        link.attr("href", apiData.blog);
+        link.off('click'); // Remove previous click event handlers
+    } else {
+        link.attr("href", "#");
+        link.on('click', function(event) {
+            event.preventDefault(); // Prevent the default action
+        });
+    }
+
+    username.attr("href", apiData.html_url); 
+    
+}
