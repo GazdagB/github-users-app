@@ -112,5 +112,5 @@ We love receiving feedback! We're always looking to improve our challenges and o
  - (DONE) Style Not available elements
  - (DONE) Username Link 
  - (DONE) Blog Link
- - Fake Loader Animation
- - Responsivity 
+ - (Later) Fake Loader Animation
+ - (DONE) Responsivity 

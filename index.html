@@ -25,7 +25,7 @@
     <script src="index.js" defer></script>
     <script src="svg-inject.js"></script>
   </head>
-  <body class="flex h-screen w-screen justify-center items-center ">
+  <body class="flex h-screen w-screen justify-center sm:items-center pt-[10svh] sm:pt-0 ">
 
   
 
@@ -52,13 +52,13 @@
       </div>
 
       <!-- Searchbar -->
-      <div class="search h-[69px] w-full flex items-center justify-between px-5 bg-white shadow-md rounded-md mb-[24px] cursor-pointer">
-        <div class="flex gap-4 w-full items-center">
-          <img src="./assets/icon-search.svg" alt="" />
-          <input id="search" class="input cursor-pointer focus:outline-none w-full py-5 px-3" type="text" placeholder="Search Github username..." />
+      <div class="search h-[69px] w-full flex items-center justify-between pe-2 ps-3 sm:pe-3 sm:ps-6 bg-white shadow-md rounded-md mb-[24px] cursor-pointer">
+        <div class="flex gap-2 w-full items-center">
+          <img class="w-[25px]" src="./assets/icon-search.svg" alt="" />
+          <input id="search" class="input  cursor-pointer focus:outline-none w-full py-5 sm:px-5 text-[13px] sm:text-[18px]" type="text" placeholder="Search Github username.." />
         </div>
-        <p class="no-result hidden" >No results</p>
-        <button class="search-btn bg-[#0079FF] py-3 px-7 text-white rounded-md">
+        <p class="no-result hidden">No results</p>
+        <button class="text-[14px] search-btn bg-[#0079FF] py-3 px-2 sm:px-5 sm:py-3 text-white rounded-md">
           Search
         </button>
       </div>
@@ -69,47 +69,63 @@
       
 
       
-      <div class="data h-min w-full bg-white rounded-lg shadow-md flex p-[40px] gap-[37px]">
+      <div class="data h-[517px] sm:h-min w-full bg-white rounded-lg shadow-md flex p-[40px] gap-[37px]">
 
-        <div id="not-found" class="hidden gap-10 flex justiy-between w-full h-full">
-          <img class="w-[280px] " src="./assets/octocat404.png" alt="">
-          <div  class="w-[480px]" >
+        <div id="not-found" class="hidden  flex flex-col justiy-between w-full h-full">
+          <img class="w-[150px] " src="./assets/octocat404.png" alt="">
+          <div  class="w-full" >
             <h2 class="font-bold text-[30px] leading-10 mt-12 mb-5" ><span class="text-[60px]">404</span> <br>User Not Found</h2>
-            <p>Ooopss... sorry we couldn't find the user you are looking for.</p>
+            <p >Ooopss... sorry we couldn't find the user you are looking for.</p>
           </div>
         </div>
 
            
-          <div id="profileContainer" class="w-[117px]">
-            <div id="profilePic" class="w-full h-[117px] rounded-full" ></div>
+        <div class="hidden md:block" >
+          <div class="profilePic w-[70px] sm:w-[117px] h-[70px] sm:h-[117px] rounded-full " ></div>
+        </div>
+
+          <div id="data-container" class="w-full ">
+        
+          <div class="flex items-center gap-[19px] mb-[30px]">
+            <div id="profileContainer">
+              <div id="profilePic" class="profilePic w-[70px] sm:w-[117px] h-[70px] sm:h-[117px] rounded-full block md:hidden" ></div>
+            </div>
+            <div>
+
+              <div class=" hidden md:flex  w-[470px] justify-between items-center">
+                <h2 class="name text-[16px] sm:text-[26px] font-bold"></h2>
+                <p class="created text-[13px] sm:text-[15px]" ></p>
+              </div>
+              <a href="#" target="_blank" class="username text-[#0079FF] text-[13px] sm:text-[16px] mb-[20px] hidden md:block">@username</a>
+
+              <div class="block md:hidden">
+                <h2 class="name text-[16px] sm:text-[26px] font-bold"></h2>
+                <a href="#" target="_blank" class="username text-[#0079FF] text-[13px] sm:text-[16px] mb-[20px]">@username</a>
+                <p class="created text-[13px] sm:text-[15px]" ></p>
+              </div>
+              
+            </div>
           </div>
-
-          <img class="spinner hidden" src="./assets/spinner-solid.svg" alt="">
-
-          <div id="data-container" class="w-[480px] ">
-          <div class="flex justify-between items-center">
-            <h2 id="name" class="text-[26px] font-bold"></h2>
-            <p id="created"></p>
-          </div>
-          <a href="#" target="_blank" id="username" class="text-[#0079FF] mb-[20px]">@username</a>  
-          <p id="bio" class="text-[15px] mb-[32px]"></p>
-          <div class="stats grid grid-rows-2 grid-cols-3 gap-2 px-5 py-5 bg-[#F6F8FF] h-[85px] rounded-lg items-center justify-center mb-[30px]">
-
-              <p class="category text-[13px] off-white-text">Repos</p>
-              <p class="category text-[13px] off-white-text">Followers</p>
-              <p class="category text-[13px] off-white-text">Following</p>
-              <p class="text-[22px] font-bold" id="repoNumber"></p>
-              <p class="text-[22px] font-bold" id="followerNumber"></p>
-              <p class="text-[22px] font-bold" id="following"></p>
+          <div class="md:w-[480px]">
+              
+                      <p id="bio" class="text-[15px] mb-[32px] text-[13px] sm:text-[15px]"></p>
+                      <div class="stats grid grid-rows-2 grid-cols-3 gap-2 px-5 py-5 bg-[#F6F8FF] h-[85px] rounded-lg items-center justify-center mb-[30px]">
+              <p class="category text-[11px] sm:text-[13px] off-white-text text-center">Repos</p>
+              <p class="category text-[11px] sm:text-[13px] off-white-text text-center">Followers</p>
+              <p class="category text-[11px] sm:text-[13px] off-white-text text-center">Following</p>
+              <p class="text-[16px] sm:text-[22px] font-bold text-center" id="repoNumber"></p>
+              <p class="text-[16px] sm:text-[22px] font-bold text-center" id="followerNumber"></p>
+              <p class="text-[16px] sm:text-[22px] font-bold text-center" id="following"></p>
                     
-          </div>
-
-          <div class="grid grid-rows-2 grid-cols-2 gap-[10px]">
+                      </div>
+            
+                      <div class="grid grid-rows-4 sm:grid-rows-2 grid-cols-1 sm:grid-cols-2 gap-[10px]">
             <p class="flex gap-3 items-center"><img onload="SVGInject(this)" class="icon" src="./assets/icon-location.svg" alt=""><span id="city"></span></p>
             <p class="flex gap-3 items-center"><img onload="SVGInject(this)" class="icon" src="./assets/icon-twitter.svg" alt=""> <span id="twitter"></span></p>
             <p class="flex gap-3 items-center"><img onload="SVGInject(this)" class="icon" src="./assets/icon-website.svg" alt=""> <a href="" target="_blank" id="link"></a></p>
             <p class="flex gap-3 items-center"><img onload="SVGInject(this)" class="icon" src="./assets/icon-company.svg" alt=""> <span id="company"></span></p>
-          </div>
+                      </div>
+                      </div>
           </div>
 
           

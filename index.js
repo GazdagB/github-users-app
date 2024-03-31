@@ -1,9 +1,9 @@
 let apiData = {}; 
 let colorMode = "LIGHT"
 
-let fullName = $("#name");
-let joined = $("#created"); 
-let username = $("#username");
+let fullName = $(".name");
+let joined = $(".created"); 
+let username = $(".username");
 let bio = $("#bio"); 
 let repoNumber = $("#repoNumber"); 
 let followerNumber = $("#followerNumber"); 
@@ -12,7 +12,7 @@ let city = $("#city");
 let twitter = $("#twitter"); 
 let link = $("#link"); 
 let company = $("#company");
-let profilePic = $("#profilePic");
+let profilePic = $(".profilePic");
 let btnLigthMode = $("#btn-light-mode");
 let input = $("#search")
 let serachButton = $("button.search-btn")
@@ -93,6 +93,7 @@ apiData = await fetchBase();
 fillInUser(); 
 styleAfterAvailability();
 loadLinks();
+
 })
 
 serachButton.on("click",async ()=>{
@@ -101,9 +102,13 @@ serachButton.on("click",async ()=>{
     if(apiData.message === "Not Found"){
         hideElements();
         showNotFound();
+        if(window.innerWidth > 640){
         resultText.removeClass("hidden")
+        }
     }else{
+        if(window.innerWidth > 640){
         resultText.addClass("hidden")
+        }
         hideNotFound();
         fillInUser();
         showElements();
