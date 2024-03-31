@@ -185,12 +185,12 @@ function fillInUser(){
   
 
 function hideElements(){
-    $("#profileContainer").hide();
+    $(".profilePic").hide();
     $("#data-container").hide();
 }
 
 function showElements(){
-    $("#profileContainer").show();
+    $(".profilPic").show();
     $("#data-container").show();
 }
 
