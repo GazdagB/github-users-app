@@ -82,11 +82,6 @@ btnLigthMode.on("click", ()=>{
     }
 })
 
-
-let user = "GazdagB"
-
-
-
 window.addEventListener("load", async ()=>{
 apiData = await fetchBase();     
 //console.log(apiData);
@@ -185,12 +180,12 @@ function fillInUser(){
   
 
 function hideElements(){
-    $(".profilePic").hide();
+    profilePic.addClass('hidden');
     $("#data-container").hide();
 }
 
 function showElements(){
-    $(".profilPic").show();
+    profilePic.removeClass('hidden');
     $("#data-container").show();
 }
 
